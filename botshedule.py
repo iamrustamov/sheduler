@@ -11,7 +11,7 @@ import getshedule
 
 from pyrogram import Client, api, Filters
 from pyrogram.api import functions, types
-from pyrogram.api.errors import FloodWait, InternalServerError
+from pyrogram.errors.exceptions import FloodWait, InternalServerError
 from pyrogram import Client, ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 
 name_login = 'settings/login_shedule.json'
