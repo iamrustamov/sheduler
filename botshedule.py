@@ -112,14 +112,12 @@ def main():
             except Exception:
                 pass
 
-        if datetime.datetime.today().isoweekday() == 7:
-            cur_time = int(time.time()) + 86400
-        else:
-            cur_time = int(time.time()) + 86400 * 2 - 86400 * datetime.datetime.today().isoweekday()
+        cur_time = int(time.time()) + 86400 - 86400 * datetime.datetime.today().isoweekday()
         
         cur_time = cur_time - cur_time % 86400
         cur_time = cur_time + diff * 604800
         cur_time = cur_time * 1000
+        print(str(cur_time) + ' request')
 
         uid = 4930
         if data_msg[0] == '/shb':

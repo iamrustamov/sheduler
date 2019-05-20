@@ -2,14 +2,13 @@ import datetime
 import requests, json, time
 
 def update(diff = 0):
-    if datetime.datetime.today().isoweekday() == 7:
-        cur_time = int(time.time()) + 86400
-    else:
-        cur_time = int(time.time()) + 86400 * 2 - 86400 * datetime.datetime.today().isoweekday()
+    cur_time = int(time.time()) + 86400 - 86400 * datetime.datetime.today().isoweekday()
     
     cur_time = cur_time - cur_time % 86400
     cur_time = cur_time + diff * 604800
     cur_time = cur_time * 1000
+
+    print(cur_time)
 
     def get_shedule(uid):
         req = requests.get('http://oreluniver.ru/schedule//%i///%i/printschedule' % (uid, cur_time))
